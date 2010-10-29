@@ -1,4 +1,4 @@
-;;; ruby-end.el --- Automatic insertion of end for blocks
+;;; ruby-end.el --- Automatic insertion of end blocks for Ruby
 
 ;; Copyright (C) 2010 Johan Andersson
 
@@ -87,7 +87,7 @@
 
 ;;;###autoload
 (define-minor-mode ruby-end-mode
-  "Automatic insertion of end for blocks"
+  "Automatic insertion of end blocks for Ruby."
   :init-value nil
   :lighter " end"
   :keymap ruby-end-mode-map)
