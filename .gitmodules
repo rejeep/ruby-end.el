@@ -1,0 +1,9 @@
+[submodule "util/ert"]
+	path = util/ert
+	url = http://github.com/ohler/ert.git
+[submodule "util/espuds"]
+	path = util/espuds
+	url = http://github.com/rejeep/espuds.git
+[submodule "util/ecukes"]
+	path = util/ecukes
+	url = http://github.com/rejeep/ecukes.git
