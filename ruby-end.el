@@ -31,6 +31,18 @@
 
 ;;; Commentary:
 
+;; ruby-end is a minor mode for Ruby that closes a block by inserting
+;; "end" when typing a block keyword, followed by a space.
+;;
+;; To use ruby-end-mode, make sure that this file is in Emacs load-path:
+;;   (add-to-list 'load-path "/path/to/directory/or/file")
+;;
+;; Then require ruby-end:
+;;   (require 'ruby-end)
+;;
+;; ruby-end-mode start automatically when ruby-mode is activated.
+
+
 ;;; Code:
 
 (defvar ruby-end-mode-map
