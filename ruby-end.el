@@ -33,19 +33,54 @@
 
 ;;; Code:
 
-(defvar ruby-end-mode-map (make-sparse-keymap)
+(defvar ruby-end-mode-map
+  (let ((map (make-sparse-keymap)))
+    (define-key map (kbd "SPC") 'ruby-end-space)
+    map)
   "Keymap for `ruby-end-mode'.")
 
+(defvar ruby-end-keywords-re
+  "\\(?:^\\|\\s-+\\)\\(?:def\\|if\\|class\\|module\\|unless\\|case\\|while\\|do\\|until\\|for\\|begin\\)"
+  "Regular expression matching from point and backwards a valid keyword.")
+
+(defun ruby-end-space ()
+  "Called when SPC-key is pressed."
+  (interactive)
+  (when (ruby-end-expand-p)
+    (ruby-end-insert-end))
+  (insert " "))
+
+(defun ruby-end-insert-end ()
+  "Closes block by inserting end."
+  (let ((whites (save-excursion (back-to-indentation) (current-column))))
+    (save-excursion
+      (newline)
+      (indent-line-to (+ whites ruby-indent-level))
+      (newline)
+      (indent-line-to whites)
+      (insert "end"))))
+
+(defun ruby-end-expand-p ()
+  "Checks if expansion (insertion of end) should be done."
+  (and
+   (ruby-end-code-at-point-p)
+   (looking-back ruby-end-keywords-re)))
+
+(defun ruby-end-code-at-point-p ()
+  "Checks if point is code, or comment or string."
+  (let ((properties (text-properties-at (point))))
+    (and
+     (null (memq 'font-lock-string-face properties))
+     (null (memq 'font-lock-comment-face properties)))))
 
 ;;;###autoload
 (define-minor-mode ruby-end-mode
   "Automatic insertion of end for blocks"
   :init-value nil
   :lighter " end"
-  :keymap ruby-end-mode-map
-  (when ruby-end-mode
+  :keymap ruby-end-mode-map)
 
-    ))
+(add-hook 'ruby-mode-hook 'ruby-end-mode)
 
 (provide 'ruby-end)
 
