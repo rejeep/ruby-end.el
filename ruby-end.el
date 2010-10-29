@@ -32,7 +32,7 @@
 ;;; Commentary:
 
 ;; ruby-end is a minor mode for Emacs that can be used with ruby-mode
-;; to automatically close blocks by inserting **end** when typing a
+;; to automatically close blocks by inserting "end" when typing a
 ;; block-keyword, followed by a space.
 ;;
 ;; To use ruby-end-mode, make sure that this file is in Emacs load-path:
