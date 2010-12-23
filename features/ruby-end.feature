@@ -42,6 +42,22 @@ Feature: Insert end
       xif condition
       """
 
+  Scenario: Text after keyword
+    When I type "condition"
+    And I go to the beginning of the line
+    And I type "if"
+    And I press "SPC"
+    Then I should see:
+      """
+      if condition
+      """
+    But I should not see:
+      """
+      if
+
+      endcondition
+      """
+
   Scenario: Other character before keyword
     When I type "!"
     And I type "if"

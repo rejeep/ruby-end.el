@@ -77,7 +77,8 @@
   "Checks if expansion (insertion of end) should be done."
   (and
    (ruby-end-code-at-point-p)
-   (looking-back ruby-end-keywords-re)))
+   (looking-back ruby-end-keywords-re)
+   (looking-at "\\s-*$")))
 
 (defun ruby-end-code-at-point-p ()
   "Checks if point is code, or comment or string."

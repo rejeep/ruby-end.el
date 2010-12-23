@@ -29,3 +29,7 @@
 (Given "^I set face to be string$"
        (lambda ()
          (add-text-properties (point-min) (point-max) '(face font-lock-comment-face))))
+
+(When "^I go to the beginning of the line$"
+      (lambda ()
+        (call-interactively 'beginning-of-line)))
