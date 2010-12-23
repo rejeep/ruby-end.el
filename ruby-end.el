@@ -41,7 +41,7 @@
 ;; Then require ruby-end:
 ;;   (require 'ruby-end)
 ;;
-;; ruby-end-mode start automatically when ruby-mode is activated.
+;; ruby-end-mode is automatically started in ruby-mode.
 
 
 ;;; Code:
