@@ -46,9 +46,12 @@
 
 ;;; Code:
 
+(defvar ruby-end-expand-key "SPC"
+  "Space key name.")
+
 (defvar ruby-end-mode-map
   (let ((map (make-sparse-keymap)))
-    (define-key map (kbd "SPC") 'ruby-end-space)
+    (define-key map (kbd ruby-end-expand-key) 'ruby-end-space)
     map)
   "Keymap for `ruby-end-mode'.")
 
@@ -59,9 +62,15 @@
 (defun ruby-end-space ()
   "Called when SPC-key is pressed."
   (interactive)
-  (when (ruby-end-expand-p)
-    (ruby-end-insert-end))
-  (insert " "))
+  (cond
+   ((ruby-end-expand-p)
+    (ruby-end-insert-end)
+    (insert " "))
+   (t
+    (let ((ruby-end-mode nil))
+      (call-interactively
+       (key-binding
+        (kbd ruby-end-expand-key)))))))
 
 (defun ruby-end-insert-end ()
   "Closes block by inserting end."
