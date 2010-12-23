@@ -74,7 +74,10 @@
 
 (defun ruby-end-insert-end ()
   "Closes block by inserting end."
-  (let ((whites (save-excursion (back-to-indentation) (current-column))))
+  (let ((whites
+         (save-excursion
+           (back-to-indentation)
+           (current-column))))
     (save-excursion
       (newline)
       (indent-line-to (+ whites ruby-indent-level))
