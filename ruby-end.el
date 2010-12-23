@@ -50,8 +50,9 @@
   "Space key name.")
 
 (defvar ruby-end-mode-map
-  (let ((map (make-sparse-keymap)))
-    (define-key map (kbd ruby-end-expand-key) 'ruby-end-space)
+  (let ((map (make-sparse-keymap))
+        (key (read-kbd-macro ruby-end-expand-key)))
+    (define-key map key 'ruby-end-space)
     map)
   "Keymap for `ruby-end-mode'.")
 
@@ -70,7 +71,7 @@
     (let ((ruby-end-mode nil))
       (call-interactively
        (key-binding
-        (kbd ruby-end-expand-key)))))))
+        (read-kbd-macro ruby-end-expand-key)))))))
 
 (defun ruby-end-insert-end ()
   "Closes block by inserting end."
