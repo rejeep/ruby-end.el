@@ -56,9 +56,13 @@
     map)
   "Keymap for `ruby-end-mode'.")
 
-(defvar ruby-end-keywords-re
+(defconst ruby-end-expand-before-re
   "\\(?:^\\|\\s-+\\)\\(?:def\\|if\\|class\\|module\\|unless\\|case\\|while\\|do\\|until\\|for\\|begin\\)"
-  "Regular expression matching from point and backwards a valid keyword.")
+  "Regular expression matching before point.")
+
+(defconst ruby-end-expand-after-re
+  "\\s-*$"
+  "Regular expression matching after point.")
 
 (defun ruby-end-space ()
   "Called when SPC-key is pressed."
@@ -90,8 +94,8 @@
   "Checks if expansion (insertion of end) should be done."
   (and
    (ruby-end-code-at-point-p)
-   (looking-back ruby-end-keywords-re)
-   (looking-at "\\s-*$")))
+   (looking-back ruby-end-expand-before-re)
+   (looking-at ruby-end-expand-after-re)))
 
 (defun ruby-end-code-at-point-p ()
   "Checks if point is code, or comment or string."
