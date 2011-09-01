@@ -57,7 +57,7 @@
   "Keymap for `ruby-end-mode'.")
 
 (defconst ruby-end-expand-before-re
-  "\\(?:^\\|\\s-+\\)\\(?:def\\|if\\|class\\|module\\|unless\\|case\\|while\\|do\\|until\\|for\\|begin\\)"
+  "^\\s-*\\(?:def\\|if\\|class\\|module\\|unless\\|case\\|while\\|do\\|until\\|for\\|begin\\)"
   "Regular expression matching before point.")
 
 (defconst ruby-end-expand-after-re
