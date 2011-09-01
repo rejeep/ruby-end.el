@@ -33,3 +33,7 @@
 (When "^I go to the beginning of the line$"
       (lambda ()
         (call-interactively 'beginning-of-line)))
+
+(Given "I enable checking of statement modifiers"
+   (lambda ()
+     (setq  ruby-end-check-statement-modifiers t)))

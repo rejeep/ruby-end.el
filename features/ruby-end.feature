@@ -112,3 +112,55 @@ Feature: Insert end
     And I press "SPC"
     And I type "condition"
     Then end should not be insterted
+
+  Scenario: Statement modifier with modifier checking
+    Given I enable checking of statement modifiers
+    When I type "return value if"
+    And I press "SPC"
+    And I type "condition"
+    Then I should see:
+      """
+      return value if condition
+      """
+    But I should not see:
+      """
+      return values if condition
+
+      end
+      """
+  
+  Scenario: Keyword at beginning of line with modifier checking
+    Given I enable checking of statement modifiers
+    When I type "if"
+    And I press "SPC"
+    And I type "condition"
+    Then I should see:
+      """
+      if condition
+        
+      end
+      """
+
+  Scenario: Whitespace before keyword with modifier checking
+    Given I enable checking of statement modifiers
+    When I type "  "
+    When I type "if"
+    And I press "SPC"
+    And I type "condition"
+    Then I should see:
+      """
+        if condition
+          
+        end
+      """
+
+  Scenario: Block with modifier checking
+    Given I enable checking of statement modifiers
+    When I type "collection.each do"
+    And I press "SPC"
+    Then I should see:
+      """
+      collection.each do 
+        
+      end
+      """
