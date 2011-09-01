@@ -61,8 +61,8 @@
   :type 'boolean
   :group 'ruby)
 
-(defconst ruby-end-expand-postfix-statement-before-re
-  "\\(?:def\\|if\\|class\\|module\\|unless\\|case\\|while\\|until\\|for\\|begin\\)"
+(defconst ruby-end-expand-postfix-modifiers-before-re
+  "\\(?:if\\|unless\\|while\\)"
   "Regular expression matching statements before point.")
 
 (defconst ruby-end-expand-prefix-check-modifiers-re
@@ -73,8 +73,8 @@
   "\\(?:^\\|\\s-+\\)"
   "Prefix for regular expression")
 
-(defconst ruby-end-expand-block-before-re
-  "\\(?:^\\|\\s-+\\)do"
+(defconst ruby-end-expand-keywords-before-re
+  "\\(?:^\\|\\s-+\\)\\(?:do\\|def\\|class\\|module\\|case\\|for\\|begin\\)"
   "Regular expression matching blocks before point.")
 
 
@@ -110,17 +110,17 @@
 
 (defun ruby-end-expand-p ()
   "Checks if expansion (insertion of end) should be done."
-  (let ((ruby-end-expand-statement-before-re
+  (let ((ruby-end-expand-statement-modifiers-before-re
         (concat
          (if ruby-end-check-statement-modifiers
              ruby-end-expand-prefix-check-modifiers-re
              ruby-end-expand-prefix-re)
-         ruby-end-expand-postfix-statement-before-re)))
+         ruby-end-expand-postfix-modifiers-before-re)))
     (and
      (ruby-end-code-at-point-p)
      (or
-      (looking-back ruby-end-expand-statement-before-re)
-      (looking-back ruby-end-expand-block-before-re))
+      (looking-back ruby-end-expand-statement-modifiers-before-re)
+      (looking-back ruby-end-expand-keywords-before-re))
      (looking-at ruby-end-expand-after-re))))
 
 (defun ruby-end-code-at-point-p ()
