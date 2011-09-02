@@ -56,9 +56,27 @@
     map)
   "Keymap for `ruby-end-mode'.")
 
-(defconst ruby-end-expand-before-re
-  "\\(?:^\\|\\s-+\\)\\(?:def\\|if\\|class\\|module\\|unless\\|case\\|while\\|do\\|until\\|for\\|begin\\)"
-  "Regular expression matching before point.")
+(defcustom ruby-end-check-statement-modifiers nil
+  "*Disable or enable expansion (insertion of end) for statement modifiers"
+  :type 'boolean
+  :group 'ruby)
+
+(defconst ruby-end-expand-postfix-modifiers-before-re
+  "\\(?:if\\|unless\\|while\\)"
+  "Regular expression matching statements before point.")
+
+(defconst ruby-end-expand-prefix-check-modifiers-re
+  "^\\s-*"
+  "Prefix for regular expression to prevent expansion with statement modifiers")
+
+(defconst ruby-end-expand-prefix-re
+  "\\(?:^\\|\\s-+\\)"
+  "Prefix for regular expression")
+
+(defconst ruby-end-expand-keywords-before-re
+  "\\(?:^\\|\\s-+\\)\\(?:do\\|def\\|class\\|module\\|case\\|for\\|begin\\)"
+  "Regular expression matching blocks before point.")
+
 
 (defconst ruby-end-expand-after-re
   "\\s-*$"
@@ -92,10 +110,18 @@
 
 (defun ruby-end-expand-p ()
   "Checks if expansion (insertion of end) should be done."
-  (and
-   (ruby-end-code-at-point-p)
-   (looking-back ruby-end-expand-before-re)
-   (looking-at ruby-end-expand-after-re)))
+  (let ((ruby-end-expand-statement-modifiers-before-re
+        (concat
+         (if ruby-end-check-statement-modifiers
+             ruby-end-expand-prefix-check-modifiers-re
+             ruby-end-expand-prefix-re)
+         ruby-end-expand-postfix-modifiers-before-re)))
+    (and
+     (ruby-end-code-at-point-p)
+     (or
+      (looking-back ruby-end-expand-statement-modifiers-before-re)
+      (looking-back ruby-end-expand-keywords-before-re))
+     (looking-at ruby-end-expand-after-re))))
 
 (defun ruby-end-code-at-point-p ()
   "Checks if point is code, or comment or string."
