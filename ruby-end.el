@@ -56,7 +56,7 @@
     map)
   "Keymap for `ruby-end-mode'.")
 
-(defcustom ruby-end-check-statement-modifiers nil
+(defcustom ruby-end-check-statement-modifiers t
   "*Disable or enable expansion (insertion of end) for statement modifiers"
   :type 'boolean
   :group 'ruby)
