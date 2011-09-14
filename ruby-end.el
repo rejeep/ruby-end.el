@@ -98,9 +98,9 @@
 (defun ruby-end-insert-end ()
   "Closes block by inserting end."
   (save-excursion
-  (newline)
-  (insert "end")
-  (indent-according-to-mode)))
+    (newline)
+    (insert "end")
+    (indent-according-to-mode)))
 
 (defun ruby-end-expand-p ()
   "Checks if expansion (insertion of end) should be done."
