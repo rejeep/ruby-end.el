@@ -97,16 +97,10 @@
 
 (defun ruby-end-insert-end ()
   "Closes block by inserting end."
-  (let ((whites
-         (save-excursion
-           (back-to-indentation)
-           (current-column))))
-    (save-excursion
-      (newline)
-      (indent-line-to (+ whites ruby-indent-level))
-      (newline)
-      (indent-line-to whites)
-      (insert "end"))))
+  (save-excursion
+    (newline)
+    (insert "end")
+    (indent-according-to-mode)))
 
 (defun ruby-end-expand-p ()
   "Checks if expansion (insertion of end) should be done."
