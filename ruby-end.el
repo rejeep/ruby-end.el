@@ -61,6 +61,11 @@
   :type 'boolean
   :group 'ruby)
 
+(defcustom ruby-end-insert-newline t
+  "*Disable or enable additional newline in between statement and end"
+  :type 'boolean
+  :group 'ruby)
+
 (defconst ruby-end-expand-postfix-modifiers-before-re
   "\\(?:if\\|unless\\|while\\)"
   "Regular expression matching statements before point.")
@@ -103,8 +108,10 @@
            (current-column))))
     (save-excursion
       (newline)
-      (indent-line-to (+ whites ruby-indent-level))
-      (newline)
+      (if ruby-end-insert-newline
+          (progn
+            (indent-line-to (+ whites ruby-indent-level))
+            (newline)))
       (indent-line-to whites)
       (insert "end"))))
 
