@@ -91,6 +91,18 @@ Feature: Insert end
     And I type "condition"
     Then I should see "xif condition"
     And end should not be insterted
+  
+  Scenario: Do not insert newline
+    Given insert newline is turned off
+    When I type "if"
+    And I press "SPC"
+    And I type "condition"
+    Then I should see:
+      """
+      if condition
+      end
+      """
+    And end should not be insterted
     
   
   # NOTE:

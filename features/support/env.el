@@ -8,6 +8,9 @@
 (add-to-list 'load-path (expand-file-name "espuds" ruby-end-util-path))
 (add-to-list 'load-path (expand-file-name "emacs-lisp" (expand-file-name "lisp" (expand-file-name "ert" ruby-end-util-path))))
 
+(Before
+ (setq ruby-end-insert-newline t))
+
 (require 'ruby-end)
 (require 'espuds)
 (require 'ert)

@@ -37,3 +37,7 @@
 (Given "I enable checking of statement modifiers"
    (lambda ()
      (setq  ruby-end-check-statement-modifiers t)))
+
+(Given "^insert newline is turned off$"
+       (lambda ()
+         (setq ruby-end-insert-newline nil)))
