@@ -117,11 +117,11 @@
 (defun ruby-end-expand-p ()
   "Checks if expansion (insertion of end) should be done."
   (let ((ruby-end-expand-statement-modifiers-before-re
-        (concat
-         (if ruby-end-check-statement-modifiers
-             ruby-end-expand-prefix-check-modifiers-re
-             ruby-end-expand-prefix-re)
-         ruby-end-expand-postfix-modifiers-before-re)))
+         (concat
+          (if ruby-end-check-statement-modifiers
+              ruby-end-expand-prefix-check-modifiers-re
+            ruby-end-expand-prefix-re)
+          ruby-end-expand-postfix-modifiers-before-re)))
     (and
      (ruby-end-code-at-point-p)
      (or
