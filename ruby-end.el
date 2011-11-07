@@ -108,10 +108,9 @@
            (current-column))))
     (save-excursion
       (newline)
-      (if ruby-end-insert-newline
-          (progn
-            (indent-line-to (+ whites ruby-indent-level))
-            (newline)))
+      (when ruby-end-insert-newline
+        (indent-line-to (+ whites ruby-indent-level))
+        (newline))
       (indent-line-to whites)
       (insert "end"))))
 
