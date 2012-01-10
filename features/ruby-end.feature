@@ -102,8 +102,6 @@ Feature: Insert end
       if condition
       end
       """
-    And end should not be insterted
-    
   
   # NOTE:
   # I have to hax these two scenarios, since running Emacs in batch
