@@ -5,7 +5,7 @@
 ;; Author: Johan Andersson <johan.rejeep@gmail.com>
 ;; Maintainer: Johan Andersson <johan.rejeep@gmail.com>
 ;; Version: 0.1.1
-;; Keywords: speed, convenience
+;; Keywords: speed, convenience, ruby
 ;; URL: http://github.com/rejeep/ruby-end
 
 ;; This file is NOT part of GNU Emacs.
