@@ -10,21 +10,17 @@ I recommend installing via ELPA, but manual installation is simple as well:
     (require 'ruby-end)
 
 ## Usage
-Start `ruby-end-mode` using.
+When `ruby-mode` is started, `ruby-end-mode` will automatically start.
 
-    (ruby-end-mode t)
-    
-or
-
-    M-x ruby-end-mode
-
-Now try writing a block keyword, such as `class` or `def` and then `SPACE`.
+In a Ruby file, try writing a block keyword, such as `class` or `def`
+and then `SPC`.
 
 For more information, see comments in `ruby-end.el`.
 
 ## Contribution
-Contribution is much welcome! Ruby end is tested using [Ecukes](http://ecukes.info). When
-Adding new features, please write tests for them!
+Contribution is much welcome! Ruby end is tested using
+[Ecukes](http://ecukes.info). When Adding new features, please write
+tests for them!
 
 To fetch Ecukes:
 
