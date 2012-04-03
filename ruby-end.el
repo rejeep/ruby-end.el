@@ -46,6 +46,8 @@
 
 ;;; Code:
 
+(require 'ruby-mode)
+
 (defvar ruby-end-expand-key "SPC"
   "Space key name.")
 
