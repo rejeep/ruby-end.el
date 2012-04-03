@@ -115,7 +115,7 @@
       (insert "end"))))
 
 (defun ruby-end-expand-p ()
-  "Checks if expansion (insertion of end) should be done."
+  "Check if expansion (insertion of end) should be done."
   (let ((ruby-end-expand-statement-modifiers-before-re
          (concat
           (if ruby-end-check-statement-modifiers
@@ -130,7 +130,7 @@
      (looking-at ruby-end-expand-after-re))))
 
 (defun ruby-end-code-at-point-p ()
-  "Checks if point is code, or comment or string."
+  "Check if point is code, or comment or string."
   (let ((properties (text-properties-at (point))))
     (and
      (null (memq 'font-lock-string-face properties))
