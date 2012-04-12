@@ -15,12 +15,12 @@
 
 (When "^I go to the end of next line$"
       (lambda ()
-        (call-interactively 'next-line)
-        (call-interactively 'move-end-of-line)))
+        (When "I press \"%s\"" "C-n")
+        (And  "I press \"%s\"" "C-e")))
 
 (When "^I go back one character$"
       (lambda ()
-        (backward-char 1)))
+        (When "I press \"%s\"" "C-b")))
 
 (Given "^I set face to be string$"
        (lambda ()
@@ -32,7 +32,7 @@
 
 (When "^I go to the beginning of the line$"
       (lambda ()
-        (call-interactively 'beginning-of-line)))
+        (When "I press \"%s\"" "C-a")))
 
 (Given "I enable checking of statement modifiers"
    (lambda ()
