@@ -22,11 +22,11 @@
       (lambda ()
         (backward-char 1)))
 
-(Given "^I set face to be comment$"
+(Given "^I set face to be string$"
        (lambda ()
          (add-text-properties (point-min) (point-max) '(face font-lock-string-face))))
 
-(Given "^I set face to be string$"
+(Given "^I set face to be comment$"
        (lambda ()
          (add-text-properties (point-min) (point-max) '(face font-lock-comment-face))))
 
