@@ -41,3 +41,7 @@
 (Given "^insert newline is turned off$"
        (lambda ()
          (setq ruby-end-insert-newline nil)))
+
+(Given "I disable expand on return"
+       (lambda ()
+         (setq ruby-end-expand-on-ret nil)))

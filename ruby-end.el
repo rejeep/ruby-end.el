@@ -48,13 +48,21 @@
 
 (require 'ruby-mode)
 
-(defvar ruby-end-expand-key "SPC"
+(defvar ruby-end-expand-spc-key "SPC"
   "Space key name.")
+
+(defvar ruby-end-expand-ret-key "RET"
+  "Return key name.")
+
+(defvar ruby-end-expand-on-ret t
+  "Should return expand or not.")
 
 (defvar ruby-end-mode-map
   (let ((map (make-sparse-keymap))
-        (key (read-kbd-macro ruby-end-expand-key)))
-    (define-key map key 'ruby-end-space)
+        (spc (read-kbd-macro ruby-end-expand-spc-key))
+        (ret (read-kbd-macro ruby-end-expand-ret-key)))
+    (define-key map spc 'ruby-end-space)
+    (define-key map ret 'ruby-end-return)
     map)
   "Keymap for `ruby-end-mode'.")
 
@@ -97,10 +105,24 @@
     (ruby-end-insert-end)
     (insert " "))
    (t
-    (let ((ruby-end-mode nil))
-      (call-interactively
-       (key-binding
-        (read-kbd-macro ruby-end-expand-key)))))))
+    (ruby-end-fallback ruby-end-expand-spc-key))))
+
+(defun ruby-end-return ()
+  "Called when RET-key is pressed."
+  (interactive)
+  (cond
+   ((and ruby-end-expand-on-ret (ruby-end-expand-p))
+    (ruby-end-insert-end)
+    (forward-line 1)
+    (indent-according-to-mode))
+   (t
+    (ruby-end-fallback ruby-end-expand-ret-key))))
+
+(defun ruby-end-fallback (key)
+  "Execute function that KEY was bound to before `ruby-end-mode'."
+  (let ((ruby-end-mode nil))
+    (execute-kbd-macro
+     (edmacro-parse-keys key))))
 
 (defun ruby-end-insert-end ()
   "Closes block by inserting end."
