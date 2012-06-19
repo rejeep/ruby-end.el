@@ -162,3 +162,22 @@ Feature: Insert end
       end
       """
 
+  Scenario: Expand on return
+    When I type "Proc.new do"
+    And I press "RET"
+    Then I should see:
+      """
+      Proc.new do
+        
+      end
+      """
+
+  Scenario: Do not expand on return when disabled
+    Given I disable expand on return
+    When I type "Proc.new do"
+    And I press "RET"
+    Then I should see:
+      """
+      Proc.new do
+
+      """
