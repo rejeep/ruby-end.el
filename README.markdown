@@ -18,16 +18,15 @@ and then `SPC`.
 For more information, see comments in `ruby-end.el`.
 
 ## Contribution
-Contribution is much welcome! Ruby end is tested using
-[Ecukes](http://ecukes.info). When Adding new features, please write
-tests for them!
+Contribution is much welcome! Ruby end is tested using [Ecukes](http://ecukes.info). When
+adding new features, please write tests for them!
 
-To fetch Ecukes:
+Install [carton](https://github.com/rejeep/carton) if you haven't
+already, then:
 
     $ cd /path/to/ruby-end
-    $ git submodule init
-    $ git submodule update
-    
-Run the tests with:
+    $ carton
 
-    $ ./util/ecukes/ecukes features
+Run all tests with:
+
+    $ make
