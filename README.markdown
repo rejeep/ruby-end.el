@@ -3,6 +3,8 @@ Ruby end is a minor mode for Emacs that can be used with `ruby-mode`
 to automatically close blocks by inserting `end` when typing a "block
 keyword", followed by a space.
 
+[<img src="http://img.youtube.com/vi/00O_8gTFe-k/0.jpg">](https://www.youtube.com/watch?v=00O_8gTFe-k)
+
 ## Installation
 I recommend installing via ELPA, but manual installation is simple as well:
 
