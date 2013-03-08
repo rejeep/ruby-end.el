@@ -121,8 +121,8 @@
 (defun ruby-end-fallback (key)
   "Execute function that KEY was bound to before `ruby-end-mode'."
   (let ((ruby-end-mode nil))
-    (execute-kbd-macro
-     (edmacro-parse-keys key))))
+    (call-interactively
+     (key-binding (edmacro-parse-keys key) t))))
 
 (defun ruby-end-insert-end ()
   "Closes block by inserting end."
