@@ -7,7 +7,6 @@ Feature: Insert end
     Given I am in buffer "*ruby-end*"
     And the buffer is empty
     And ruby-mode is active
-    And ruby-end-mode is active
 
   Scenario: Keyword at beginning of line
     When I type "if"
