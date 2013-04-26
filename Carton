@@ -1,6 +1,6 @@
 (source "melpa" "http://melpa.milkbox.net/packages/")
 
-(package "ruby-end" "0.2.1" "Automatic insertion of end blocks for Ruby.")
+(package "ruby-end" "0.2.2" "Automatic insertion of end blocks for Ruby.")
 
 (development
  (depends-on "ecukes")
