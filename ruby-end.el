@@ -167,7 +167,9 @@
   :lighter " end"
   :keymap ruby-end-mode-map)
 
-(add-hook 'ruby-mode-hook 'ruby-end-mode)
+(add-hook 'ruby-mode-hook
+          (lambda ()
+            (ruby-end-mode 1)))
 
 (provide 'ruby-end)
 
