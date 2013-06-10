@@ -180,3 +180,23 @@ Feature: Insert end
       Proc.new do
 
       """
+
+  Scenario: End expansion in blocks (issue#8)
+    When I type "foo do"
+    And I press "RET"
+    Then I should see:
+      """
+      foo do
+        
+      end
+      """
+    When I type "foo"
+    When I press "C-b"
+    And I press "RET"
+    Then I should see:
+      """
+      foo do
+        fo
+      o
+      end
+      """
