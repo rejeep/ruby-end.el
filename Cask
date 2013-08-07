@@ -1,4 +1,4 @@
-(source "melpa" "http://melpa.milkbox.net/packages/")
+(source melpa)
 
 (package "ruby-end" "0.2.2" "Automatic insertion of end blocks for Ruby.")
 

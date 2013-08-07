@@ -23,11 +23,11 @@ For more information, see comments in `ruby-end.el`.
 Contribution is much welcome! Ruby end is tested using [Ecukes](http://ecukes.info). When
 adding new features, please write tests for them!
 
-Install [carton](https://github.com/rejeep/carton) if you haven't
+Install [cask](https://github.com/rejeep/cask.el) if you haven't
 already, then:
 
     $ cd /path/to/ruby-end
-    $ carton
+    $ cask
 
 Run all tests with:
 
