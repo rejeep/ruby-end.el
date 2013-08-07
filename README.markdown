@@ -1,4 +1,5 @@
-# Ruby end
+# Ruby end [![Build Status](https://api.travis-ci.org/rejeep/ruby-end.png?branch=master)](http://travis-ci.org/rejeep/ruby-end)
+
 Ruby end is a minor mode for Emacs that can be used with `ruby-mode`
 to automatically close blocks by inserting `end` when typing a "block
 keyword", followed by a space.
