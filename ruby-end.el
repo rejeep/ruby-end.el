@@ -76,6 +76,13 @@
   :type 'boolean
   :group 'ruby)
 
+(defcustom ruby-end-expand-only-for-last-commands '(self-insert-command)
+  "List of `last-command' values to restrict expansion to, or nil.
+
+When nil, any `last-command' will do."
+  :type '(repeat function)
+  :group 'ruby)
+
 (defconst ruby-end-expand-postfix-modifiers-before-re
   "\\(?:if\\|unless\\|while\\)"
   "Regular expression matching statements before point.")
@@ -147,6 +154,8 @@
             ruby-end-expand-prefix-re)
           ruby-end-expand-postfix-modifiers-before-re)))
     (and
+     (or (not ruby-end-expand-only-for-last-commands)
+         (memq last-command ruby-end-expand-only-for-last-commands))
      (ruby-end-code-at-point-p)
      (or
       (looking-back ruby-end-expand-statement-modifiers-before-re)

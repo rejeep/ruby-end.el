@@ -180,3 +180,24 @@ Feature: Insert end
       Proc.new do
 
       """
+
+  Scenario: Do not expand when the last command was not insertion
+    Given I restrict expansion to only after insertion
+    When I press "i"
+    And I press "f"
+    And I press "<left>"
+    And I press "<right>"
+    And I press "SPC"
+    Then I should see "if "
+    And end should not be insterted
+
+  Scenario: Expand when the last command was insertion
+    Given I restrict expansion to only after insertion
+    When I type "if" interactively
+    And I press "SPC"
+    Then I should see:
+    """
+    if 
+      
+    end
+    """
