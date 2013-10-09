@@ -45,3 +45,12 @@
 (Given "I disable expand on return"
        (lambda ()
          (setq ruby-end-expand-on-ret nil)))
+
+(Given "^I type \"\\([^\"]+\\)\" interactively"
+       (lambda (str)
+         (When "I type \"%s\"" str)
+         (setq this-command 'self-insert-command)))
+
+(Given "I restrict expansion to only after insertion"
+       (lambda ()
+         (setq ruby-end-expand-only-for-last-commands '(self-insert-command))))
