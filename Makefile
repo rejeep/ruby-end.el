@@ -1,4 +1,10 @@
-all:
-	cask exec ecukes features
+CASK ?= cask
 
-.PHONY: all
+all: test
+
+test: ecukes
+
+ecukes:
+	$(CASK) exec ecukes
+
+.PHONY: ecukes test all
