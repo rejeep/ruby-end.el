@@ -3,5 +3,4 @@
 (package-file "ruby-end.el")
 
 (development
- (depends-on "ecukes")
- (depends-on "espuds"))
+ (depends-on "ecukes"))
