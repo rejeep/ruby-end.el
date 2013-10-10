@@ -10,7 +10,8 @@
 
 (Before
  (setq ruby-end-insert-newline t)
- (setq ruby-end-expand-on-ret t))
+ (setq ruby-end-expand-on-ret t)
+ (setq ruby-end-expand-only-for-last-commands nil))
 
 (require 'ruby-end)
 (require 'espuds)
