@@ -119,7 +119,8 @@ When nil, any `last-command' will do."
   (interactive)
   (cond
    ((and ruby-end-expand-on-ret (ruby-end-expand-p))
-    (ruby-end-insert-end)
+    (let ((ruby-end-insert-newline t))
+      (ruby-end-insert-end))
     (forward-line 1)
     (indent-according-to-mode))
    (t
