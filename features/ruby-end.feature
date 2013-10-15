@@ -96,6 +96,17 @@ Feature: Insert end
       end
       """
 
+  Scenario: Always insert newline after RET
+    Given insert newline is turned off
+    When I type "foo do"
+    And I press "RET"
+    Then I should see:
+      """
+      foo do
+        
+      end
+      """
+
   # NOTE:
   # I have to hax these two scenarios, since running Emacs in batch
   # mode does not set the text properties.
