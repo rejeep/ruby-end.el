@@ -180,6 +180,9 @@ When nil, any `last-command' will do."
 (add-hook 'ruby-mode-hook
           (lambda ()
             (ruby-end-mode 1)))
+(add-hook 'enh-ruby-mode-hook
+          (lambda ()
+            (ruby-end-mode 1)))
 
 (provide 'ruby-end)
 
