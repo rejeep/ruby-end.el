@@ -4,7 +4,7 @@
 
 ;; Author: Johan Andersson <johan.rejeep@gmail.com>
 ;; Maintainer: Johan Andersson <johan.rejeep@gmail.com>
-;; Version: 0.3.1
+;; Version: 0.4.0
 ;; Keywords: speed, convenience, ruby
 ;; URL: http://github.com/rejeep/ruby-end
 
