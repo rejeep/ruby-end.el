@@ -177,12 +177,10 @@ When nil, any `last-command' will do."
   :lighter " end"
   :keymap ruby-end-mode-map)
 
-(add-hook 'ruby-mode-hook
-          (lambda ()
-            (ruby-end-mode 1)))
-(add-hook 'enh-ruby-mode-hook
-          (lambda ()
-            (ruby-end-mode 1)))
+;;;###autoload
+(add-hook 'ruby-mode-hook 'ruby-end-mode)
+;;;###autoload
+(add-hook 'enh-ruby-mode-hook 'ruby-end-mode)
 
 (provide 'ruby-end)
 
