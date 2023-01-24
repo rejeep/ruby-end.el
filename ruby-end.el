@@ -99,7 +99,6 @@ When nil, any `last-command' will do."
   "\\(?:^\\|\\s-+\\)\\(?:do\\|def\\|class\\|module\\|case\\|for\\|begin\\)"
   "Regular expression matching blocks before point.")
 
-
 (defconst ruby-end-expand-after-re
   "\\s-*$"
   "Regular expression matching after point.")
@@ -165,10 +164,7 @@ When nil, any `last-command' will do."
 
 (defun ruby-end-code-at-point-p ()
   "Check if point is code, or comment or string."
-  (let ((properties (text-properties-at (point))))
-    (and
-     (null (memq 'font-lock-string-face properties))
-     (null (memq 'font-lock-comment-face properties)))))
+  (not (nth 8 (syntax-ppss))))
 
 ;;;###autoload
 (define-minor-mode ruby-end-mode
