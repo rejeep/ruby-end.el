@@ -68,12 +68,12 @@
   "Keymap for `ruby-end-mode'.")
 
 (defcustom ruby-end-check-statement-modifiers t
-  "*Disable or enable expansion (insertion of end) for statement modifiers"
+  "Disable or enable expansion (insertion of end) for statement modifiers.q"
   :type 'boolean
   :group 'ruby)
 
 (defcustom ruby-end-insert-newline t
-  "*Disable or enable additional newline in between statement and end"
+  "Disable or enable additional newline in between statement and end."
   :type 'boolean
   :group 'ruby)
 
@@ -90,11 +90,11 @@ When nil, any `last-command' will do."
 
 (defconst ruby-end-expand-prefix-check-modifiers-re
   "^\\s-*"
-  "Prefix for regular expression to prevent expansion with statement modifiers")
+  "Prefix for regular expression to prevent expansion with statement modifiers.")
 
 (defconst ruby-end-expand-prefix-re
   "\\(?:^\\|\\s-+\\)"
-  "Prefix for regular expression")
+  "Prefix for regular expression.")
 
 (defconst ruby-end-expand-keywords-before-re
   "\\(?:^\\|\\s-+\\)\\(?:do\\|def\\|class\\|module\\|case\\|for\\|begin\\)"
