@@ -180,6 +180,8 @@ When nil, any `last-command' will do."
 (add-hook 'ruby-mode-hook 'ruby-end-mode)
 ;;;###autoload
 (add-hook 'enh-ruby-mode-hook 'ruby-end-mode)
+;;;###autoload
+(add-hook 'ruby-ts-mode-hook 'ruby-end-mode)
 
 (provide 'ruby-end)
 
