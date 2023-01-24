@@ -47,6 +47,7 @@
 ;;; Code:
 
 (require 'ruby-mode)
+(require 'edmacro)
 
 (defvar ruby-end-expand-spc-key "SPC"
   "Space key name.")
