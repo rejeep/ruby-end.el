@@ -158,8 +158,10 @@ When nil, any `last-command' will do."
          (memq last-command ruby-end-expand-only-for-last-commands))
      (ruby-end-code-at-point-p)
      (or
-      (looking-back ruby-end-expand-statement-modifiers-before-re)
-      (looking-back ruby-end-expand-keywords-before-re))
+      (looking-back ruby-end-expand-statement-modifiers-before-re
+                    (line-beginning-position))
+      (looking-back ruby-end-expand-keywords-before-re
+                    (line-beginning-position)))
      (looking-at ruby-end-expand-after-re))))
 
 (defun ruby-end-code-at-point-p ()
