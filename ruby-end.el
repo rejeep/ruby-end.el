@@ -3,8 +3,8 @@
 ;; Copyright (C) 2010-2015, 2017, 2023  Free Software Foundation, Inc.
 
 ;; Author: Johan Andersson <johan.rejeep@gmail.com>
-;; Maintainer: Johan Andersson <johan.rejeep@gmail.com>
-;; Version: 0.4.2
+;; Maintainer: Dmitry Gutov <dgutov@yandex.ru>
+;; Version: 0.4.3
 ;; Keywords: speed, convenience, ruby
 ;; URL: http://github.com/rejeep/ruby-end
 
