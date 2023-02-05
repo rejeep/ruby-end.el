@@ -1,20 +1,24 @@
-(require 'f)
+;;  -*- lexical-binding: t; -*-
 
+;; FIXME: Rename "path" to "filename" to follow GNU convention.
 (defvar ruby-end-features-path
-  (f-parent (f-dirname (f-this-file))))
+  (expand-file-name "../" (file-name-directory
+                           (if (fboundp 'macroexp-file-name)
+                               (macroexp-file-name)
+                             load-file-name))))
 
 (defvar ruby-end-root-path
-  (f-parent ruby-end-features-path))
+  (expand-file-name "../" ruby-end-features-path))
 
 (defvar ruby-end-vendor-path
-  (f-expand "vendor" ruby-end-features-path))
+  (expand-file-name "vendor/" ruby-end-features-path))
 
+;; FIXME: Don't make such changes when we're merely loading an ELisp file.
 (add-to-list 'load-path ruby-end-root-path)
 
 (require 'ruby-end)
 (require 'espuds)
-(unless (require 'ert nil 'noerror)
-  (require 'ert (f-expand "ert" ruby-end-vendor-path)))
+(require 'ert)
 
 (Before
  (setq ruby-end-insert-newline t)
