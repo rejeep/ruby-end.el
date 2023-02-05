@@ -10,9 +10,6 @@
 (defvar ruby-end-root-path
   (expand-file-name "../" ruby-end-features-path))
 
-(defvar ruby-end-vendor-path
-  (expand-file-name "vendor/" ruby-end-features-path))
-
 ;; FIXME: Don't make such changes when we're merely loading an ELisp file.
 (add-to-list 'load-path ruby-end-root-path)
 
