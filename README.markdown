@@ -21,7 +21,7 @@ and then `SPC`.
 For more information, see comments in `ruby-end.el`.
 
 ## Contribution
-Contribution is much welcome! Ruby end is tested using [Ecukes](http://ecukes.info). When
+Contribution is much welcome! Ruby end is tested using [Ecukes](https://github.com/ecukes/ecukes). When
 adding new features, please write tests for them!
 
 Install [cask](https://github.com/rejeep/cask.el) if you haven't
